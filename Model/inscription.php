@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('user.php');
 
 class ajout{
@@ -95,7 +95,9 @@ class ajout{
         }
 
         else {
-          echo '<body onLoad="alert(\'Réservation annulée, pas de place pour autant de personnes\')">';
+          $place = 50 - $total;
+          $_SESSION['places'] = $place;
+          echo '<body onLoad="alert(\'Réservation annulée, il ne reste plus assez de places\')">';
 
           echo '<meta http-equiv="refresh" content="0;URL=../View/indexco.html">';
         }
@@ -109,6 +111,29 @@ class ajout{
       }
 
     }
+
+  }
+
+  public function places(){
+
+    try{
+      $bdd= new PDO('mysql:host=localhost;dbname=restoration; charset=utf8','root','');
+    }
+    catch (Exception $e){
+      die('Erreur:'.$e->getMessage());
+    }
+
+    $total = 0;
+    $recup = $bdd->query('SELECT nb_pers FROM reservation');
+    $done = $recup->fetchall();
+
+    foreach ($done as $value) {
+      $total = $total + $value['nb_pers'];
+    }
+
+    $place = 50 - $total;
+    $_SESSION['places'] = $place;
+    echo $_SESSION['places'];
 
   }
 }

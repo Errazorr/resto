@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start();?>
 <html lang="en">
 <head>
 	<title>Réservation</title>
@@ -217,7 +217,7 @@
 							<div class="col-md-4">
 								<!-- Date -->
 								<span class="txt9">
-									Date
+									Date<br><br>
 								</span>
 
 								<div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
@@ -229,7 +229,7 @@
 							<div class="col-md-4">
 								<!-- Time -->
 								<span class="txt9">
-									Heure
+									Heure<br><br>
 								</span>
 
 								<div class="wrap-inputtime size12 bo2 bo-rad-10 m-t-3 m-b-23">
@@ -263,7 +263,9 @@
 							<div class="col-md-4">
 								<!-- People -->
 	              <span class="txt9">
-	                Nombre de personnes
+	                Nombre de personnes (places restantes : <?php $place = new ajout;
+									$p = $place->places();
+									echo $p; ?>)
 	              </span>
 
 	              <div class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23">
