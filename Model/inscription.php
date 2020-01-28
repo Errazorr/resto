@@ -132,9 +132,6 @@ class ajout{
     }
 
     $place = 50 - $total;
-    $_SESSION['places'] = $place;
-    echo $_SESSION['places'];
-
   }
 }
 

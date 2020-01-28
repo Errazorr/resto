@@ -61,7 +61,7 @@
 								</li>
 
 								<li>
-									<a href="reservation.html">Réservation</a>
+									<a href="#">Réservation</a>
 								</li>
 
 								<li>
@@ -264,7 +264,7 @@
 								<!-- People -->
 	              <span class="txt9">
 	                Nombre de personnes (places restantes : <?php $place = new ajout;
-									$p = $place->places();
+									$p = $places->places();
 									echo $p; ?>)
 	              </span>
 
