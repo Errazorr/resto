@@ -1,5 +1,7 @@
 <?php
 
+require 'user.php';
+
 class reservation extends user{
   private $_date;
   private $_heure;

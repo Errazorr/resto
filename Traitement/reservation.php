@@ -13,12 +13,11 @@ else{
   $reserver = new reservation(['nom' =>$_POST['nom'],
                                 'tel' =>$_POST['tel'],
                                 'mail' =>$_POST['mail'],
-                                'date' =>$_POST['date'],
+                                'date' =>$_POST['jour'],
                                 'heure' =>$_POST['heure'],
-                                'personnes' =>$_POST['personnes']]);
+                                'pers' =>$_POST['personnes']]);
   $res = new ajout;
   $res->reserver($reserver);
-
 }
 
 ?>
