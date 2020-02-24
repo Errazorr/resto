@@ -52,46 +52,46 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="index.html">Home</a>
+									<a href="index.php">Home</a>
 								</li>
 
 								<li>
-									<a href="View/menu.html">Menu</a>
+									<a href="View/menu.php">Menu</a>
 								</li>
 
 								<li>
-									<a href="View/gallery.html">Gallerie</a>
+									<a href="View/gallery.php">Gallerie</a>
 								</li>
 
 								<li>
-									<a href="View/about.html">A propos</a>
+									<a href="View/about.php">A propos</a>
 								</li>
 
 								<li>
-									<a href="View/contact.html">Contact</a>
+									<a href="View/contact.php">Contact</a>
 								</li>
-<?php
-						if (isset($_SESSION['identifiant'])) {
-							echo '<li>
-								<a href="../index.html">Déconnexion</a>
-							</li>
+								<?php
+														if (isset($_SESSION['identifiant'])) {
+															?> <li >
+																<a href="Traitement/session_destroy.php">Déconnexion</a>
+															</li>
 
-							<li>
-								<a href="inscription.html">Données</a>
-							</li>';
-						}
+															<li >
+																<a href="View/reservation.php">Réserver</a>
+															</li>
+														<?php }
+														else {
+														?>
+															<li >
+																<a href="View/connexion.php" class="txt19">Connexion</a>
+															</li>
 
-						else {
-							echo '<li>
-								<a href="View/connexion.html">Connexion</a>
-							</li>
+															<li >
+																<a href="View/inscription.php" class="txt19">S\'inscrire</a>
+															</li>'
+													<?php	}
 
-							<li>
-								<a href="View/inscription.html">S\'inscrire</a>
-							</li>';
-						}
-
-?>
+								?>
 							</ul>
 						</nav>
 					</div>
@@ -113,46 +113,46 @@
 		<!-- - -->
 		<ul class="menu-sidebar p-t-95 p-b-70">
 			<li class="t-center m-b-13">
-				<a href="index.html" class="txt19">Home</a>
+				<a href="index.php" class="txt19">Home</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="View/menu.html" class="txt19">Menu</a>
+				<a href="View/menu.php" class="txt19">Menu</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="View/gallery.html" class="txt19">Gallerie</a>
+				<a href="View/gallery.php" class="txt19">Gallerie</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="View/about.html" class="txt19">A propos</a>
+				<a href="View/about.php" class="txt19">A propos</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="View/contact.html" class="txt19">Contact</a>
+				<a href="View/contact.php" class="txt19">Contact</a>
 			</li>
 
 
 			<?php
 									if (isset($_SESSION['identifiant'])) {
-										echo '<li>
-											<a href="../index.html">Déconnexion</a>
-										</li>
-
-										<li>
-											<a href="inscription.html">Données</a>
-										</li>';
-									}
-
-									else {
-										echo '<li class="t-center m-b-13">
-											<a href="View/connexion.html" class="txt19">Connexion</a>
+										?> <li class="t-center m-b-13">
+											<a href="Traitement/session_destroy.php" class="txt19">Déconnexion</a>
 										</li>
 
 										<li class="t-center m-b-13">
-											<a href="View/inscription.html" class="txt19">S\'inscrire</a>
-										</li>';
-									}
+											<a href="View/reservation.php" class="txt19">Réserver</a>
+										</li>
+									<?php }
+									else {
+									?>
+										<li class="t-center m-b-13">
+											<a href="View/connexion.php" class="txt19">Connexion</a>
+										</li>
+
+										<li class="t-center m-b-13">
+											<a href="View/inscription.php" class="txt19">S\'inscrire</a>
+										</li>'
+								<?php	}
 
 			?>
 		</ul>
@@ -221,7 +221,7 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
 							<!-- Button1 -->
-							<a href="View/menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+							<a href="View/menu.php" class="btn1 flex-c-m size1 txt3 trans-0-4">
 								Menu
 							</a>
 						</div>
@@ -240,7 +240,7 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
 							<!-- Button1 -->
-							<a href="View/menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+							<a href="View/menu.php" class="btn1 flex-c-m size1 txt3 trans-0-4">
 								Menu
 							</a>
 						</div>
@@ -259,7 +259,7 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
 							<!-- Button1 -->
-							<a href="View/menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+							<a href="View/menu.php" class="btn1 flex-c-m size1 txt3 trans-0-4">
 								Menu
 							</a>
 						</div>
@@ -290,7 +290,7 @@
 							Notre restaurant peut vous offrir des plats du monde entier de la meilleure qualité possible grâce à nos chefs experimentés.
 						</p>
 
-						<a href="View/about.html" class="txt4">
+						<a href="View/about.php" class="txt4">
 							Notre histoire
 							<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
 						</a>

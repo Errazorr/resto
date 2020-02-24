@@ -7,7 +7,7 @@ session_start();
 if ($_POST['mdp'] != $_POST['confirm']) {
   echo '<body onLoad="alert(\'Les deux mots de passe sont différents\')">';
 
-  echo '<meta http-equiv="refresh" content="0;URL=../View/inscription.html">';
+  echo '<meta http-equiv="refresh" content="0;URL=../View/inscription.php">';
 }
 
 else{

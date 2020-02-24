@@ -52,45 +52,45 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="../index.html">Home</a>
+									<a href="../index.php">Home</a>
 								</li>
 
 								<li>
-									<a href="menu.html">Menu</a>
+									<a href="menu.php">Menu</a>
 								</li>
 
 								<li>
-									<a href="gallery.html">Gallerie</a>
+									<a href="gallery.php">Gallerie</a>
 								</li>
 
 								<li>
-									<a href="about.html">A propos</a>
+									<a href="about.php">A propos</a>
 								</li>
 
 								<li>
-									<a href="contact.html">Contact</a>
+									<a href="contact.php">Contact</a>
 								</li>
 
 								<?php
 														if (isset($_SESSION['identifiant'])) {
-															echo '<li>
-																<a href="../index.html">Déconnexion</a>
+															?> <li >
+																<a href="../Traitement/session_destroy.php">Déconnexion</a>
 															</li>
 
-															<li>
-																<a href="inscription.html">Données</a>
-															</li>';
-														}
-
+															<li >
+																<a href="reservation.php">Réserver</a>
+															</li>
+														<?php }
 														else {
-															echo '<li>
-																<a href="View/connexion.html">Connexion</a>
+														?>
+															<li >
+																<a href="connexion.php" class="txt19">Connexion</a>
 															</li>
 
-															<li>
-																<a href="View/inscription.html">S\'inscrire</a>
-															</li>';
-														}
+															<li >
+																<a href="inscription.php" class="txt19">S\'inscrire</a>
+															</li>'
+													<?php	}
 
 								?>
 
@@ -115,45 +115,45 @@
 		<!-- - -->
 		<ul class="menu-sidebar p-t-95 p-b-70">
 			<li class="t-center m-b-13">
-				<a href="../index.html" class="txt19">Home</a>
+				<a href="../index.php" class="txt19">Home</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="menu.html" class="txt19">Menu</a>
+				<a href="menu.php" class="txt19">Menu</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="gallery.html" class="txt19">Gallerie</a>
+				<a href="gallery.php" class="txt19">Gallerie</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="about.html" class="txt19">A propos</a>
+				<a href="about.php" class="txt19">A propos</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="contact.html" class="txt19">Contact</a>
+				<a href="contact.php" class="txt19">Contact</a>
 			</li>
 
 			<?php
 									if (isset($_SESSION['identifiant'])) {
-										echo '<li class="t-center m-b-13">
-											<a href="../index.html">Déconnexion</a>
+										?> <li class="t-center m-b-13">
+											<a href="../Traitement/session_destroy.php" class="txt19">Déconnexion</a>
 										</li>
 
 										<li class="t-center m-b-13">
-											<a href="inscription.html">Données</a>
-										</li>';
-									}
-
+											<a href="reservation.php" class="txt19">Réserver</a>
+										</li>
+									<?php }
 									else {
-										echo '<li class="t-center m-b-13">
-											<a href="View/connexion.html" class="txt19">Connexion</a>
+									?>
+										<li class="t-center m-b-13">
+											<a href="connexion.php" class="txt19">Connexion</a>
 										</li>
 
 										<li class="t-center m-b-13">
-											<a href="View/inscription.html" class="txt19">S\'inscrire</a>
-										</li>';
-									}
+											<a href="inscription.php" class="txt19">S\'inscrire</a>
+										</li>'
+								<?php	}
 
 			?>
 		</ul>

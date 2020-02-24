@@ -44,7 +44,7 @@ require('../Model/inscription.php')?>
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="../index.html">
+						<a href="../index.php">
 							<img src="../images/icons/logo.png" alt="IMG-LOGO" data-logofixed="../images/icons/logo2.png">
 						</a>
 					</div>
@@ -54,11 +54,11 @@ require('../Model/inscription.php')?>
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="indexco.html">Home</a>
+									<a href="indexco.php">Home</a>
 								</li>
 
 								<li>
-									<a href="menuco.html">Menu</a>
+									<a href="menuco.php">Menu</a>
 								</li>
 
 								<li>
@@ -66,23 +66,19 @@ require('../Model/inscription.php')?>
 								</li>
 
 								<li>
-									<a href="galleryco.html">Gallerie</a>
+									<a href="galleryco.php">Gallerie</a>
 								</li>
 
 								<li>
-									<a href="aboutco.html">A propos</a>
+									<a href="aboutco.php">A propos</a>
 								</li>
 
 								<li>
-									<a href="contactco.html">Contact</a>
+									<a href="contactco.php">Contact</a>
 								</li>
 
 								<li>
-									<a href="../index.html">Déconnexion</a>
-								</li>
-
-								<li>
-									<a href="inscription.html">Données</a>
+									<a href="../index.php">Déconnexion</a>
 								</li>
 
 							</ul>
@@ -106,36 +102,32 @@ require('../Model/inscription.php')?>
 		<!-- - -->
 		<ul class="menu-sidebar p-t-95 p-b-70">
 			<li class="t-center m-b-13">
-				<a href="../index.html" class="txt19">Home</a>
+				<a href="../index.php" class="txt19">Home</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="menu.html" class="txt19">Menu</a>
+				<a href="menu.php" class="txt19">Menu</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="gallery.html" class="txt19">Gallerie</a>
+				<a href="gallery.php" class="txt19">Gallerie</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="about.html" class="txt19">A propos</a>
+				<a href="about.php" class="txt19">A propos</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="contact.html" class="txt19">Contact</a>
+				<a href="contact.php" class="txt19">Contact</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="../index.html" class="txt19">Déconnexion</a>
-			</li>
-
-			<li class="t-center m-b-13">
-				<a href="inscription.html" class="txt19">Données</a>
+				<a href="../index.php" class="txt19">Déconnexion</a>
 			</li>
 
 			<li class="t-center">
 				<!-- Button3 -->
-				<a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+				<a href="reservation.php" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
 					Réservation
 				</a>
 			</li>

@@ -18,7 +18,7 @@ class ajout{
     if($donnees){
       echo '<body onLoad="alert(\'Erreur, utilisateur déjà existant\')">';
 
-      echo '<meta http-equiv="refresh" content="0;URL=../View/inscription.html">';
+      echo '<meta http-equiv="refresh" content="0;URL=../View/inscription.php">';
     }
 
     else{
@@ -43,14 +43,15 @@ class ajout{
     $donnees= $req->fetch();
 
     if ($donnees['identifiant'] == $connexion->getId() AND $donnees['mdp'] == md5($connexion->getMdp())) {
-      $_SESSION['identifiant'] == $connexion->getId();
-      header('Location: ../View/index.php');
+      $_SESSION['identifiant'] = $connexion->getId();
+    
+      header('Location: ../index.php');
     }
 
     else{
       echo '<body onLoad="alert(\'Identifiant ou Mot de passe incorrect\')">';
 
-      echo '<meta http-equiv="refresh" content="0;URL=../View/connexion.html">';
+      echo '<meta http-equiv="refresh" content="0;URL=../View/connexion.php">';
     }
   }
 
@@ -71,7 +72,7 @@ class ajout{
     if($donnees){
       echo '<body onLoad="alert(\'Erreur, nom déjà utilisé pour une réservation\')">';
 
-      echo '<meta http-equiv="refresh" content="0;URL=../View/reservation.html">';
+      echo '<meta http-equiv="refresh" content="0;URL=../View/reservation.php">';
     }
 
     else{
@@ -92,13 +93,13 @@ class ajout{
           $req->execute(array($reserver->getNom(), $reserver->getTel(), $reserver->getMail(), $reserver->getDate(), $reserver->getHeure(), $reserver->getPers()));
           echo '<body onLoad="alert(\'Réservation réussie\')">';
 
-          echo '<meta http-equiv="refresh" content="0;URL=../View/index.php">';
+          echo '<meta http-equiv="refresh" content="0;URL=../index.php">';
         }
 
         else {
           echo '<body onLoad="alert(\'Réservation annulée, il ne reste plus assez de places\')">';
 
-          echo '<meta http-equiv="refresh" content="0;URL=../View/index.php">';
+          echo '<meta http-equiv="refresh" content="0;URL=../index.php">';
         }
 
       }
@@ -106,7 +107,7 @@ class ajout{
       else {
         echo '<body onLoad="alert(\'Nombre maximal de personnes atteint pour ce jour\')">';
 
-        echo '<meta http-equiv="refresh" content="0;URL=../View/reservation.html">';
+        echo '<meta http-equiv="refresh" content="0;URL=../View/reservation.php">';
       }
 
     }
