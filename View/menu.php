@@ -82,6 +82,10 @@
 															<li >
 																<a href="reservation.php">Réserver</a>
 															</li>
+
+															<li>
+																<a href="compte.php">Mon compte</a>
+															</li>
 														<?php }
 														else {
 														?>
@@ -90,8 +94,8 @@
 															</li>
 
 															<li >
-																<a href="inscription.php" class="txt19">S\'inscrire</a>
-															</li>'
+																<a href="inscription.php" class="txt19">S'inscrire</a>
+															</li>
 													<?php	}
 
 								?>
@@ -144,6 +148,10 @@
 										<li class="t-center m-b-13">
 											<a href="reservation.php" class="txt19">Réserver</a>
 										</li>
+
+										<li class="t-center m-b-13">
+											<a href="compte.php" class="txt19">Mon compte</a>
+										</li>
 									<?php }
 									else {
 									?>
@@ -152,8 +160,8 @@
 										</li>
 
 										<li class="t-center m-b-13">
-											<a href="inscription.php" class="txt19">S\'inscrire</a>
-										</li>'
+											<a href="inscription.php" class="txt19">S'inscrire</a>
+										</li>
 								<?php	}
 
 			?>

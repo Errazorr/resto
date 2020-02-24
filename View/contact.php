@@ -75,24 +75,28 @@
 
 								<?php
 														if (isset($_SESSION['identifiant'])) {
-															echo '<li>
-																<a href="../index.php">Déconnexion</a>
+															?> <li >
+																<a href="../Traitement/session_destroy.php">Déconnexion</a>
+															</li>
+
+															<li >
+																<a href="reservation.php">Réserver</a>
 															</li>
 
 															<li>
-																<a href="inscription.php">Données</a>
-															</li>';
-														}
-
+																<a href="compte.php">Mon compte</a>
+															</li>
+														<?php }
 														else {
-															echo '<li>
-																<a href="View/connexion.php">Connexion</a>
+														?>
+															<li >
+																<a href="connexion.php" class="txt19">Connexion</a>
 															</li>
 
-															<li>
-																<a href="View/inscription.php">S\'inscrire</a>
-															</li>';
-														}
+															<li >
+																<a href="inscription.php" class="txt19">S'inscrire</a>
+															</li>
+													<?php	}
 
 								?>
 							</ul>
@@ -137,24 +141,28 @@
 
 			<?php
 									if (isset($_SESSION['identifiant'])) {
-										echo '<li class="t-center m-b-13">
-											<a href="../index.php">Déconnexion</a>
+										?> <li class="t-center m-b-13">
+											<a href="../Traitement/session_destroy.php" class="txt19">Déconnexion</a>
 										</li>
 
 										<li class="t-center m-b-13">
-											<a href="inscription.php">Données</a>
-										</li>';
-									}
+											<a href="reservation.php" class="txt19">Réserver</a>
+										</li>
 
+										<li class="t-center m-b-13">
+											<a href="compte.php" class="txt19">Mon compte</a>
+										</li>
+									<?php }
 									else {
-										echo '<li class="t-center m-b-13">
-											<a href="View/connexion.php" class="txt19">Connexion</a>
+									?>
+										<li class="t-center m-b-13">
+											<a href="connexion.php" class="txt19">Connexion</a>
 										</li>
 
 										<li class="t-center m-b-13">
-											<a href="View/inscription.php" class="txt19">S\'inscrire</a>
-										</li>';
-									}
+											<a href="inscription.php" class="txt19">S'inscrire</a>
+										</li>
+								<?php	}
 
 			?>
 		</ul>
@@ -222,8 +230,7 @@
 		<!-- Map -->
 		<div class="container">
 			<div class="map bo8 bo-rad-10 of-hidden">
-				<div class="contact-map size37" id="google_map" data-map-x="49.062860" data-map-y="2.321002" data-pin="../images/icons/favicon.png" data-scrollwhell="0" data-draggable="1"></div>
-			</div>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.3328918975171!2d2.3188028149349558!3d49.062641594258565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6431ebb8df4df%3A0xdef4ba2394a3b14a!2s20%20Avenue%20du%20Bosquet%2C%2095560%20Baillet-en-France!5e1!3m2!1sfr!2sfr!4v1582542948071!5m2!1sfr!2sfr" width="1150" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 		</div>
 
 		<div class="container">

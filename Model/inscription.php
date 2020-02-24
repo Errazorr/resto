@@ -25,7 +25,8 @@ class ajout{
       $req = $bdd->prepare('INSERT INTO compte (nom, prenom, identifiant, tel, mail, mdp, role) VALUES (?,?,?,?,?,?,?)');
       $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getId(), $inscription->getTel(), $inscription->getMail(), md5($inscription->getMdp()), 'client'));
       $_SESSION['nom'] = $inscription->getNom();
-    };
+      $_SESSION['prenom'] = $inscription->getPrenom();
+    }
   }
 
 
@@ -44,7 +45,8 @@ class ajout{
 
     if ($donnees['identifiant'] == $connexion->getId() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['identifiant'] = $connexion->getId();
-    
+      $_SESSION['mail'] = $connexion->getMail();
+
       header('Location: ../index.php');
     }
 
@@ -133,6 +135,28 @@ class ajout{
 
     return $place = 50 - $total;
   }
+
+  public function modifier(user $modification){
+    try{
+      $bdd= new PDO('mysql:host=localhost;dbname=restoration; charset=utf8','root','');
+    }
+    catch (Exception $e){
+      die('Erreur:'.$e->getMessage());
+    }
+
+      $req = $bdd->prepare('UPDATE compte SET mail=?, tel=?, identifiant=? WHERE nom=? AND prenom=?');
+      $req->execute(array($modification->getMail(), $modification->getTel(), $modification->getId(), $_SESSION['nom'], $_SESSION['prenom']));
+      header('Location: ../index.php');
+
+      $req = $bdd->prepare('SELECT * FROM compte WHERE identifiant=? AND mail=?');
+      $req->execute(array($modification->getId(), $modification->getMail()));
+      $donnees= $req->fetch();
+      $_SESSION['identifiant'] = $modification->getId();
+      $_SESSION['mail'] = $modification->getMail();
+      var_dump($modification->getTel());
+      var_dump($modification->getId());
+    }
+
 }
 
 ?>

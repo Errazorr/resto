@@ -1,8 +1,21 @@
-<?php session_start(); ?>
+<?php session_start();
+require('../Model/user.php');
+
+try{
+$bdd= new PDO('mysql:host=localhost;dbname=restoration;charset=utf8','root','');
+}
+catch(Exception $e){
+  die('Erreur:'.$e->getMessage());
+}
+$req=$bdd->prepare('SELECT * FROM compte WHERE identifiant=?');
+$req->execute(array($_SESSION['identifiant']));
+$donne=$req->fetch();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Inscription</title>
+	<title>Mon compte</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -213,34 +226,17 @@
       <div class="col-lg-6 p-b-30">
         <div class="t-center">
           <span class="tit2 t-center">
-            inscription
+            Mon compte
           </span>
 
           <h3 class="tit3 t-center m-b-35 m-t-2">
-            Entrez vos données
+            Modifiez vos données
           </h3>
         </div>
 
-        <form class="wrap-form-booking" action="../Traitement/inscription.php" method="post">
+        <form class="wrap-form-booking" action="../Traitement/modification.php" method="post">
           <div class="row">
             <div class="col-md-12">
-              <!-- Nom -->
-              <span class="txt9">
-                Nom
-              </span>
-
-							<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="nom" placeholder="Nom">
-              </div>
-
-              <!-- Prénom -->
-              <span class="txt9">
-                Prénom
-              </span>
-
-							<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-								<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="prenom" placeholder="Prénom">
-							</div>
 
 							<!-- Identifiant -->
               <span class="txt9">
@@ -248,7 +244,7 @@
               </span>
 
 							<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-								<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="id" placeholder="Identifiant">
+								<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="id" placeholder="Identifiant" value=<?php echo $donne['identifiant']; ?>>
 							</div>
 
               <!-- Phone -->
@@ -257,7 +253,7 @@
               </span>
 
               <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                <input class="bo-rad-10 sizefull txt10 p-l-20" type="tel" maxlength="10" minlength="10" name="tel" placeholder="Téléphone">
+                <input class="bo-rad-10 sizefull txt10 p-l-20" type="tel" maxlength="10" minlength="10" name="tel" placeholder="Téléphone" value=<?php echo $donne['tel']; ?>>
               </div>
 
               <!-- Email -->
@@ -266,37 +262,19 @@
               </span>
 
               <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="mail" placeholder="Email">
+                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="mail" placeholder="Email" value=<?php echo $donne['mail']; ?>>
               </div>
-
-							<!-- MDP -->
-							<span class="txt9">
-								Mot de passe
-							</span>
-
-							<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-								<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="mdp" placeholder="Mot de passe">
-							</div>
-
-							<!-- Confirmation -->
-							<span class="txt9">
-								Confirmez votre mot de passe
-							</span>
-
-							<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-								<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="confirm" placeholder="Confirmez le mot de passe">
-							</div>
             </div>
           </div>
 					<button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
-						S'inscrire
+						Modifier
 					</button>
         </form>
       </div>
 
       <div class="col-lg-6 p-b-30 p-t-220">
         <div class="wrap-pic-booking size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-          <img src="../images/booking-01.jpg" alt="IMG-OUR">
+          <img src="../images/mon_compte.jpg" alt="IMG-OUR">
 
         </div>
       </div>

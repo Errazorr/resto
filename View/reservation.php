@@ -54,31 +54,35 @@ require('../Model/inscription.php')?>
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="indexco.php">Home</a>
+									<a href="../index.php">Home</a>
 								</li>
 
 								<li>
-									<a href="menuco.php">Menu</a>
+									<a href="menu.php">Menu</a>
 								</li>
 
 								<li>
-									<a href="#">Réservation</a>
+									<a href="gallery.php">Gallerie</a>
 								</li>
 
 								<li>
-									<a href="galleryco.php">Gallerie</a>
+									<a href="about.php">A propos</a>
 								</li>
 
 								<li>
-									<a href="aboutco.php">A propos</a>
+									<a href="contact.php">Contact</a>
 								</li>
 
 								<li>
-									<a href="contactco.php">Contact</a>
+									<a href="../Traitement/session_destroy.php">Déconnexion</a>
 								</li>
 
 								<li>
-									<a href="../index.php">Déconnexion</a>
+									<a href="reservation.php">Réserver</a>
+								</li>
+
+								<li>
+									<a href="compte.php">Mon compte</a>
 								</li>
 
 							</ul>
@@ -122,7 +126,15 @@ require('../Model/inscription.php')?>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="../index.php" class="txt19">Déconnexion</a>
+				<a href="../Traitement/session_destroy.php" class="txt19">Déconnexion</a>
+			</li>
+
+			<li class="t-center m-b-13">
+				<a href="reservation.php" class="txt19">Réserver</a>
+			</li>
+
+			<li class="t-center m-b-13">
+				<a href="compte.php" class="txt19">Mon compte</a>
 			</li>
 
 			<li class="t-center">

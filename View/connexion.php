@@ -90,8 +90,8 @@
 															</li>
 
 															<li >
-																<a href="inscription.php" class="txt19">S\'inscrire</a>
-															</li>'
+																<a href="inscription.php" class="txt19">S'inscrire</a>
+															</li>
 													<?php	}
 
 								?>
@@ -153,8 +153,8 @@
 										</li>
 
 										<li class="t-center m-b-13">
-											<a href="inscription.php" class="txt19">S\'inscrire</a>
-										</li>'
+											<a href="inscription.php" class="txt19">S'inscrire</a>
+										</li>
 								<?php	}
 
 			?>
