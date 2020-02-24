@@ -1,7 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>A propos</title>
+	<title>Gallerie</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -72,13 +73,28 @@
 									<a href="contact.html">Contact</a>
 								</li>
 
-								<li>
-									<a href="connexion.html">Connexion</a>
-								</li>
+								<?php
+														if (isset($_SESSION['identifiant'])) {
+															echo '<li>
+																<a href="../index.html">Déconnexion</a>
+															</li>
 
-								<li>
-									<a href="inscription.html">S'inscrire</a>
-								</li>
+															<li>
+																<a href="inscription.html">Données</a>
+															</li>';
+														}
+
+														else {
+															echo '<li>
+																<a href="View/connexion.html">Connexion</a>
+															</li>
+
+															<li>
+																<a href="View/inscription.html">S\'inscrire</a>
+															</li>';
+														}
+
+								?>
 							</ul>
 						</nav>
 					</div>
@@ -108,24 +124,39 @@
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="gallery.html" class="txt19">Gallerie</a>
+				<a href="gallery.html" class="txt19">Gallery</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="about.html" class="txt19">A propos</a>
+				<a href="about.html" class="txt19">About</a>
 			</li>
 
-			<li class="t-center m-b-33">
+			<li class="t-center m-b-13">
 				<a href="contact.html" class="txt19">Contact</a>
 			</li>
 
-			<li class="t-center m-b-13">
-				<a href="connexion.html" class="txt19">Connexion</a>
-			</li>
+			<?php
+									if (isset($_SESSION['identifiant'])) {
+										echo '<li class="t-center m-b-13">
+											<a href="../index.html">Déconnexion</a>
+										</li>
 
-			<li class="t-center m-b-13">
-				<a href="inscription.html" class="txt19">S'inscrire</a>
-			</li>
+										<li class="t-center m-b-13">
+											<a href="inscription.html">Données</a>
+										</li>';
+									}
+
+									else {
+										echo '<li class="t-center m-b-13">
+											<a href="View/connexion.html" class="txt19">Connexion</a>
+										</li>
+
+										<li class="t-center m-b-13">
+											<a href="View/inscription.html" class="txt19">S\'inscrire</a>
+										</li>';
+									}
+
+			?>
 		</ul>
 
 		<!-- - -->
@@ -178,167 +209,121 @@
 
 
 	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(../images/bg-title-page-03.jpg);">
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(../images/bg-title-page-02.jpg);">
 		<h2 class="tit6 t-center">
-			A propos de nous
+			Gallerie
 		</h2>
 	</section>
 
 
-	<!-- Our Story -->
-	<section class="bg2-pattern p-t-116 p-b-110 t-center p-l-15 p-r-15">
-		<span class="tit2 t-center">
-			Restaurant Multiculturel
-		</span>
 
-		<h3 class="tit3 t-center m-b-35 m-t-5">
-			Notre Histoire
-		</h3>
+	<!-- Gallery -->
+	<div class="section-gallery p-t-118 p-b-100">
+		<div class="wrap-label-gallery filter-tope-group size27 flex-w flex-sb-m m-l-r-auto flex-col-c-sm p-l-15 p-r-15 m-b-60">
+			<button class="label-gallery txt26 trans-0-4 is-actived" data-filter="*">
+				Toutes les photos
+			</button>
 
-		<p class="t-center size32 m-l-r-auto">
-			Le restaurant Errazorr a été créé en 1995 par Mr. Errazorr. Il a commencé par un restaurant français, puis il a décidé de se lancer dans les cuisines étrangères. Différents chefs de différents pays sont venus pour pouvoir cuisiner les spécialités de leurs pays.
-		</p>
-	</section>
+			<button class="label-gallery txt26 trans-0-4" data-filter=".interior">
+				Intéreur
+			</button>
 
-	<!-- Delicious & Romantic-->
-	<section class="bg1-pattern p-t-120 p-b-105">
-		<div class="container">
-			<!-- Delicious -->
-			<div class="row">
-				<div class="col-md-6 p-t-45 p-b-30">
-					<div class="wrap-text-delicious t-center">
-						<span class="tit2 t-center">
-							De Délicieuses
-						</span>
+			<button class="label-gallery txt26 trans-0-4" data-filter=".food">
+				Nourriture
+			</button>
 
-						<h3 class="tit3 t-center m-b-35 m-t-5">
-							Recettes
-						</h3>
+			<button class="label-gallery txt26 trans-0-4" data-filter=".events">
+				Evenements
+			</button>
+		</div>
 
-						<p class="t-center m-b-22 size3 m-l-r-auto">
-							Nos plats sont préparés par des chefs spécialisés.
-						</p>
-					</div>
-				</div>
+		<div class="wrap-gallery isotope-grid flex-w p-l-25 p-r-25">
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events guests">
+				<img src="../images/photo-gallery-13.jpg" alt="IMG-GALLERY">
 
-				<div class="col-md-6 p-b-30">
-					<div class="wrap-pic-delicious size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-						<img src="../images/our-story-01.jpg" alt="IMG-OUR">
-					</div>
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-13.jpg" data-lightbox="gallery"></a>
 				</div>
 			</div>
 
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom food">
+				<img src="../images/photo-gallery-14.jpg" alt="IMG-GALLERY">
 
-			<!-- Romantic -->
-			<div class="row p-t-170">
-				<div class="col-md-6 p-b-30">
-					<div class="wrap-pic-romantic size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-						<img src="../images/our-story-02.jpg" alt="IMG-OUR">
-					</div>
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-14.jpg" data-lightbox="gallery"></a>
 				</div>
+			</div>
 
-				<div class="col-md-6 p-t-45 p-b-30">
-					<div class="wrap-text-romantic t-center">
-						<span class="tit2 t-center">
-							Un restaurant
-						</span>
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events">
+				<img src="../images/photo-gallery-15.jpg" alt="IMG-GALLERY">
 
-						<h3 class="tit3 t-center m-b-35 m-t-5">
-							Romantique
-						</h3>
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-15.jpg" data-lightbox="gallery"></a>
+				</div>
+			</div>
 
-						<p class="t-center m-b-22 size3 m-l-r-auto">
-						Notre restaurant est choisi pour son charme et son ambiance. Parfait pour un dîner en amoureux.
-						</p>
-					</div>
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom food">
+				<img src="../images/photo-gallery-16.jpg" alt="IMG-GALLERY">
+
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-16.jpg" data-lightbox="gallery"></a>
+				</div>
+			</div>
+
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom food">
+				<img src="../images/photo-gallery-17.jpg" alt="IMG-GALLERY">
+
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-17.jpg" data-lightbox="gallery"></a>
+				</div>
+			</div>
+
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom interior guests">
+				<img src="../images/photo-gallery-18.jpg" alt="IMG-GALLERY">
+
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-18.jpg" data-lightbox="gallery"></a>
+				</div>
+			</div>
+
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom interior">
+				<img src="../images/photo-gallery-19.jpg" alt="IMG-GALLERY">
+
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-19.jpg" data-lightbox="gallery"></a>
+				</div>
+			</div>
+
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom interior">
+				<img src="../images/photo-gallery-20.jpg" alt="IMG-GALLERY">
+
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-20.jpg" data-lightbox="gallery"></a>
+				</div>
+			</div>
+
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events">
+				<img src="../images/photo-gallery-21.jpg" alt="IMG-GALLERY">
+
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-21.jpg" data-lightbox="gallery"></a>
 				</div>
 			</div>
 		</div>
-	</section>
 
-	<!-- Chef -->
-	<section class="section-chef bgwhite p-t-115 p-b-95">
-		<div class="container t-center">
-			<span class="tit2 t-center">
-				Rencontrez nos
-			</span>
-
-			<h3 class="tit5 t-center m-b-50 m-t-5">
-				Chefs
-			</h3>
-
-			<div class="row">
-				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
-					<!-- -Block5 -->
-					<div class="blo5 pos-relative p-t-60">
-						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
-							<a href="#"><img src="../images/avatar-02.jpg" alt="IGM-AVATAR"></a>
-						</div>
-
-						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
-							<a href="#" class="txt34 dis-block p-b-6">
-								Peter Hart
-							</a>
-
-							<span class="dis-block t-center txt35 p-b-25">
-								Chef
-							</span>
-
-							<p class="t-center">
-								Specialisé dans les plats Français et Italiens.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
-					<!-- -Block5 -->
-					<div class="blo5 pos-relative p-t-60">
-						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
-							<a href="#"><img src="../images/avatar-03.jpg" alt="IGM-AVATAR"></a>
-						</div>
-
-						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
-							<a href="#" class="txt34 dis-block p-b-6">
-								Hiro Tanaka
-							</a>
-
-							<span class="dis-block t-center txt35 p-b-25">
-								Chef
-							</span>
-
-							<p class="t-center">
-								Spécialisée dans les plats asiatiques.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
-					<!-- -Block5 -->
-					<div class="blo5 pos-relative p-t-60">
-						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
-							<a href="#"><img src="../images/avatar-05.jpg" alt="IGM-AVATAR"></a>
-						</div>
-
-						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
-							<a href="#" class="txt34 dis-block p-b-6">
-								Harry Harford
-							</a>
-
-							<span class="dis-block t-center txt35 p-b-25">
-								Chef
-							</span>
-
-							<p class="t-center">
-								Spécialisé dans la cuisine Américaine.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div class="pagination flex-c-m flex-w p-l-15 p-r-15 m-t-24 m-b-50">
+			<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
 		</div>
-	</section>
+	</div>
 
 	<!-- Footer -->
 	<footer class="bg1">
@@ -473,6 +458,8 @@
 			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 		</span>
 	</div>
+
+
 
 <!--===============================================================================================-->
 	<script type="text/javascript" src="../vendor/jquery/jquery-3.2.1.min.js"></script>

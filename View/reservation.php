@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php
+require('../Model/inscription.php')?>
 <html lang="en">
 <head>
 	<title>Réservation</title>
@@ -235,27 +236,19 @@
 								<div class="wrap-inputtime size12 bo2 bo-rad-10 m-t-3 m-b-23">
 	                <!-- Select2 -->
 	                <select class="selection-1" name="heure">
-	                  <option>10:00</option>
-	                  <option>10:30</option>
-	                  <option>11:00</option>
-	                  <option>11:30</option>
-	                  <option>12:00</option>
-	                  <option>12:30</option>
-	                  <option>13:00</option>
-	                  <option>13:30</option>
-	                  <option>14:00</option>
-	                  <option>14:30</option>
-	                  <option>15:00</option>
-	                  <option>15:30</option>
-	                  <option>16:00</option>
-	                  <option>16:30</option>
-	                  <option>17:00</option>
-	                  <option>17:30</option>
-	                  <option>18:00</option>
-										<option>18:30</option>
-										<option>19:00</option>
-										<option>19:30</option>
-										<option>20:00</option>
+										<?php
+										try{
+										$bdd= new PDO('mysql:host=localhost;dbname=restoration;charset=utf8','root','');
+										}
+										catch(Exception $e){
+										  die('Erreur:'.$e->getMessage());
+										}
+										$reponse=$bdd->query('SELECT heures FROM heure');
+										$donne=$reponse->fetchall();
+										foreach ($donne as $value) {
+											echo '<option>'.$value['heures'].'</option>';
+										}
+										?>
 	                </select>
 	              </div>
 							</div>
@@ -263,24 +256,29 @@
 							<div class="col-md-4">
 								<!-- People -->
 	              <span class="txt9">
-	                Nombre de personnes (places restantes : <?php $place = new ajout;
-									$p = $places->places();
-									echo $p; ?>)
+	                <?php
+									$place = new ajout();
+									$p = $place->places();
+										echo 'Nombre de personnes (places restantes : ' . $p.')';
+									?>
 	              </span>
 
 	              <div class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23">
 	                <!-- Select2 -->
 	                <select class="selection-1" name="personnes">
-	                  <option>1</option>
-	                  <option>2</option>
-	                  <option>3</option>
-	                  <option>4</option>
-	                  <option>5</option>
-	                  <option>6</option>
-	                  <option>7</option>
-	                  <option>8</option>
-	                  <option>9</option>
-	                  <option>10</option>
+										<?php
+										try{
+										$bdd= new PDO('mysql:host=localhost;dbname=restoration;charset=utf8','root','');
+										}
+										catch(Exception $e){
+										  die('Erreur:'.$e->getMessage());
+										}
+										$reponse=$bdd->query('SELECT places FROM place');
+										$donne=$reponse->fetchall();
+										foreach ($donne as $value) {
+											echo '<option>'.$value['places'].'</option>';
+										}
+										?>
 	                </select>
 	              </div>
 							</div>

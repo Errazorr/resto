@@ -24,8 +24,8 @@ class ajout{
     else{
       $req = $bdd->prepare('INSERT INTO compte (nom, prenom, identifiant, tel, mail, mdp, role) VALUES (?,?,?,?,?,?,?)');
       $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getId(), $inscription->getTel(), $inscription->getMail(), md5($inscription->getMdp()), 'client'));
-
-    }
+      $_SESSION['nom'] = $inscription->getNom();
+    };
   }
 
 
@@ -43,7 +43,8 @@ class ajout{
     $donnees= $req->fetch();
 
     if ($donnees['identifiant'] == $connexion->getId() AND $donnees['mdp'] == md5($connexion->getMdp())) {
-      header('Location: ../View/indexco.html');
+      $_SESSION['identifiant'] == $connexion->getId();
+      header('Location: ../View/index.php');
     }
 
     else{
@@ -91,15 +92,13 @@ class ajout{
           $req->execute(array($reserver->getNom(), $reserver->getTel(), $reserver->getMail(), $reserver->getDate(), $reserver->getHeure(), $reserver->getPers()));
           echo '<body onLoad="alert(\'Réservation réussie\')">';
 
-          echo '<meta http-equiv="refresh" content="0;URL=../View/indexco.html">';
+          echo '<meta http-equiv="refresh" content="0;URL=../View/index.php">';
         }
 
         else {
-          $place = 50 - $total;
-          $_SESSION['places'] = $place;
           echo '<body onLoad="alert(\'Réservation annulée, il ne reste plus assez de places\')">';
 
-          echo '<meta http-equiv="refresh" content="0;URL=../View/indexco.html">';
+          echo '<meta http-equiv="refresh" content="0;URL=../View/index.php">';
         }
 
       }
@@ -131,7 +130,7 @@ class ajout{
       $total = $total + $value['nb_pers'];
     }
 
-    $place = 50 - $total;
+    return $place = 50 - $total;
   }
 }
 

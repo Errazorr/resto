@@ -1,7 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Gallerie</title>
+	<title>Contact</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -72,13 +73,28 @@
 									<a href="contact.html">Contact</a>
 								</li>
 
-								<li>
-									<a href="connexion.html">Connexion</a>
-								</li>
+								<?php
+														if (isset($_SESSION['identifiant'])) {
+															echo '<li>
+																<a href="../index.html">Déconnexion</a>
+															</li>
 
-								<li>
-									<a href="inscription.html">S'inscrire</a>
-								</li>
+															<li>
+																<a href="inscription.html">Données</a>
+															</li>';
+														}
+
+														else {
+															echo '<li>
+																<a href="View/connexion.html">Connexion</a>
+															</li>
+
+															<li>
+																<a href="View/inscription.html">S\'inscrire</a>
+															</li>';
+														}
+
+								?>
 							</ul>
 						</nav>
 					</div>
@@ -112,20 +128,35 @@
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="about.html" class="txt19">About</a>
+				<a href="about.html" class="txt19">A propos</a>
 			</li>
 
-			<li class="t-center m-b-13">
+			<li class="t-center m-b-33">
 				<a href="contact.html" class="txt19">Contact</a>
 			</li>
 
-			<li class="t-center m-b-13">
-				<a href="View/connexion.html" class="txt19">Connexion</a>
-			</li>
+			<?php
+									if (isset($_SESSION['identifiant'])) {
+										echo '<li class="t-center m-b-13">
+											<a href="../index.html">Déconnexion</a>
+										</li>
 
-			<li class="t-center m-b-13">
-				<a href="View/inscription.html" class="txt19">S'inscrire</a>
-			</li>
+										<li class="t-center m-b-13">
+											<a href="inscription.html">Données</a>
+										</li>';
+									}
+
+									else {
+										echo '<li class="t-center m-b-13">
+											<a href="View/connexion.html" class="txt19">Connexion</a>
+										</li>
+
+										<li class="t-center m-b-13">
+											<a href="View/inscription.html" class="txt19">S\'inscrire</a>
+										</li>';
+									}
+
+			?>
 		</ul>
 
 		<!-- - -->
@@ -180,119 +211,138 @@
 	<!-- Title Page -->
 	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(../images/bg-title-page-02.jpg);">
 		<h2 class="tit6 t-center">
-			Gallerie
+			Contact
 		</h2>
 	</section>
 
 
 
-	<!-- Gallery -->
-	<div class="section-gallery p-t-118 p-b-100">
-		<div class="wrap-label-gallery filter-tope-group size27 flex-w flex-sb-m m-l-r-auto flex-col-c-sm p-l-15 p-r-15 m-b-60">
-			<button class="label-gallery txt26 trans-0-4 is-actived" data-filter="*">
-				Toutes les photos
-			</button>
-
-			<button class="label-gallery txt26 trans-0-4" data-filter=".interior">
-				Intéreur
-			</button>
-
-			<button class="label-gallery txt26 trans-0-4" data-filter=".food">
-				Nourriture
-			</button>
-
-			<button class="label-gallery txt26 trans-0-4" data-filter=".events">
-				Evenements
-			</button>
-		</div>
-
-		<div class="wrap-gallery isotope-grid flex-w p-l-25 p-r-25">
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events guests">
-				<img src="../images/photo-gallery-13.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-13.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom food">
-				<img src="../images/photo-gallery-14.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-14.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events">
-				<img src="../images/photo-gallery-15.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-15.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom food">
-				<img src="../images/photo-gallery-16.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-16.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom food">
-				<img src="../images/photo-gallery-17.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-17.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom interior guests">
-				<img src="../images/photo-gallery-18.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-18.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom interior">
-				<img src="../images/photo-gallery-19.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-19.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom interior">
-				<img src="../images/photo-gallery-20.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-20.jpg" data-lightbox="gallery"></a>
-				</div>
-			</div>
-
-			<!-- - -->
-			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events">
-				<img src="../images/photo-gallery-21.jpg" alt="IMG-GALLERY">
-
-				<div class="overlay-item-gallery trans-0-4 flex-c-m">
-					<a class="btn-show-gallery flex-c-m fa fa-search" href="../images/photo-gallery-21.jpg" data-lightbox="gallery"></a>
-				</div>
+	<!-- Contact form -->
+	<section class="section-contact bg1-pattern p-t-90 p-b-113">
+		<!-- Map -->
+		<div class="container">
+			<div class="map bo8 bo-rad-10 of-hidden">
+				<div class="contact-map size37" id="google_map" data-map-x="49.062860" data-map-y="2.321002" data-pin="../images/icons/favicon.png" data-scrollwhell="0" data-draggable="1"></div>
 			</div>
 		</div>
 
-		<div class="pagination flex-c-m flex-w p-l-15 p-r-15 m-t-24 m-b-50">
-			<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+		<div class="container">
+			<h3 class="tit7 t-center p-b-62 p-t-105">
+				Envoyez nous un message
+			</h3>
+
+			<form class="wrap-form-reservation size22 m-l-r-auto">
+				<div class="row">
+					<div class="col-md-4">
+						<!-- Name -->
+						<span class="txt9">
+							Nom
+						</span>
+
+						<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
+							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name">
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<!-- Email -->
+						<span class="txt9">
+							Email
+						</span>
+
+						<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Email">
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<!-- Phone -->
+						<span class="txt9">
+							Téléphone
+						</span>
+
+						<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
+							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="phone" placeholder="Phone">
+						</div>
+					</div>
+
+					<div class="col-12">
+						<!-- Message -->
+						<span class="txt9">
+							Message
+						</span>
+						<textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="message" placeholder="Message"></textarea>
+					</div>
+				</div>
+
+				<div class="wrap-btn-booking flex-c-m m-t-13">
+					<!-- Button3 -->
+					<button type="submit" class="btn3 flex-c-m size36 txt11 trans-0-4">
+						Envoyer
+					</button>
+				</div>
+			</form>
+
+			<div class="row p-t-135">
+				<div class="col-sm-8 col-md-4 col-lg-4 m-l-r-auto p-t-30">
+					<div class="dis-flex m-l-23">
+						<div class="p-r-40 p-t-6">
+							<img src="../images/icons/map-icon.png" alt="IMG-ICON">
+						</div>
+
+						<div class="flex-col-l">
+							<span class="txt5 p-b-10">
+								Lieu
+							</span>
+
+							<span class="txt23 size38">
+								20 rue du bosquet, 95560, Baillet-en-France
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-md-3 col-lg-4 m-l-r-auto p-t-30">
+					<div class="dis-flex m-l-23">
+						<div class="p-r-40 p-t-6">
+							<img src="../images/icons/phone-icon.png" alt="IMG-ICON">
+						</div>
+
+
+						<div class="flex-col-l">
+							<span class="txt5 p-b-10">
+								Appelez nous
+							</span>
+
+							<span class="txt23 size38">
+								09 87 65 43 21
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-md-5 col-lg-4 m-l-r-auto p-t-30">
+					<div class="dis-flex m-l-23">
+						<div class="p-r-40 p-t-6">
+							<img src="../images/icons/clock-icon.png" alt="IMG-ICON">
+						</div>
+
+
+						<div class="flex-col-l">
+							<span class="txt5 p-b-10">
+								Heures d'ouverture
+							</span>
+
+							<span class="txt23 size38">
+								Du lundi au samedi <br/> 10:00 - 23:00 <br> Dimanche <br> 10:00 - 21:00
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
+	</section>
+
 
 	<!-- Footer -->
 	<footer class="bg1">
@@ -401,7 +451,7 @@
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-12.jpg" alt="GALLERY">
+							<img src="../images/photo-gallery-thumb-12.jpg" alt="GALLERY">
 						</a>
 					</div>
 				</div>
@@ -427,6 +477,9 @@
 			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 		</span>
 	</div>
+
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
 
 
 
@@ -455,7 +508,8 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="../vendor/lightbox2/js/lightbox.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/isotope/isotope.pkgd.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="../js/map-custom.js"></script>
 <!--===============================================================================================-->
 	<script src="../js/main.js"></script>
 

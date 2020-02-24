@@ -1,7 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contact</title>
+	<title>A propos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -53,32 +54,47 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="indexco.html">Home</a>
+									<a href="../index.html">Home</a>
 								</li>
 
 								<li>
-									<a href="menuco.html">Menu</a>
+									<a href="menu.html">Menu</a>
 								</li>
 
 								<li>
-									<a href="galleryco.html">Gallerie</a>
+									<a href="gallery.html">Gallerie</a>
 								</li>
 
 								<li>
-									<a href="aboutco.html">A propos</a>
+									<a href="about.html">A propos</a>
 								</li>
 
 								<li>
-									<a href="#">Contact</a>
+									<a href="contact.html">Contact</a>
 								</li>
 
-								<li>
-									<a href="../index.html">Déconnexion</a>
-								</li>
+								<?php
+														if (isset($_SESSION['identifiant'])) {
+															echo '<li>
+																<a href="../index.html">Déconnexion</a>
+															</li>
 
-								<li>
-									<a href="inscription.html">Données</a>
-								</li>
+															<li>
+																<a href="inscription.html">Données</a>
+															</li>';
+														}
+
+														else {
+															echo '<li>
+																<a href="View/connexion.html">Connexion</a>
+															</li>
+
+															<li>
+																<a href="View/inscription.html">S\'inscrire</a>
+															</li>';
+														}
+
+								?>
 							</ul>
 						</nav>
 					</div>
@@ -100,32 +116,47 @@
 		<!-- - -->
 		<ul class="menu-sidebar p-t-95 p-b-70">
 			<li class="t-center m-b-13">
-				<a href="indexco.html" class="txt19">Home</a>
+				<a href="../index.html" class="txt19">Home</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="menuco.html" class="txt19">Menu</a>
+				<a href="menu.html" class="txt19">Menu</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="galleryco.html" class="txt19">Gallery</a>
+				<a href="gallery.html" class="txt19">Gallerie</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="aboutco.html" class="txt19">A propos</a>
+				<a href="about.html" class="txt19">A propos</a>
 			</li>
 
 			<li class="t-center m-b-33">
-				<a href="#" class="txt19">Contact</a>
+				<a href="contact.html" class="txt19">Contact</a>
 			</li>
 
-			<li class="t-center m-b-13">
-				<a href="../index.html" class="txt19">Déconnexion</a>
-			</li>
+			<?php
+									if (isset($_SESSION['identifiant'])) {
+										echo '<li class="t-center m-b-13">
+											<a href="../index.html">Déconnexion</a>
+										</li>
 
-			<li class="t-center m-b-13">
-				<a href="inscription.html" class="txt19">Données</a>
-			</li>
+										<li class="t-center m-b-13">
+											<a href="inscription.html">Données</a>
+										</li>';
+									}
+
+									else {
+										echo '<li class="t-center m-b-13">
+											<a href="View/connexion.html" class="txt19">Connexion</a>
+										</li>
+
+										<li class="t-center m-b-13">
+											<a href="View/inscription.html" class="txt19">S\'inscrire</a>
+										</li>';
+									}
+
+			?>
 		</ul>
 
 		<!-- - -->
@@ -178,140 +209,167 @@
 
 
 	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(../images/bg-title-page-02.jpg);">
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(../images/bg-title-page-03.jpg);">
 		<h2 class="tit6 t-center">
-			Contact
+			A propos de nous
 		</h2>
 	</section>
 
 
+	<!-- Our Story -->
+	<section class="bg2-pattern p-t-116 p-b-110 t-center p-l-15 p-r-15">
+		<span class="tit2 t-center">
+			Restaurant Multiculturel
+		</span>
 
-	<!-- Contact form -->
-	<section class="section-contact bg1-pattern p-t-90 p-b-113">
-		<!-- Map -->
+		<h3 class="tit3 t-center m-b-35 m-t-5">
+			Notre Histoire
+		</h3>
+
+		<p class="t-center size32 m-l-r-auto">
+			Le restaurant Errazorr a été créé en 1995 par Mr. Errazorr. Il a commencé par un restaurant français, puis il a décidé de se lancer dans les cuisines étrangères. Différents chefs de différents pays sont venus pour pouvoir cuisiner les spécialités de leurs pays.
+		</p>
+	</section>
+
+	<!-- Delicious & Romantic-->
+	<section class="bg1-pattern p-t-120 p-b-105">
 		<div class="container">
-			<div class="map bo8 bo-rad-10 of-hidden">
-				<div class="contact-map size37" id="google_map" data-map-x="49.062860" data-map-y="2.321002" data-pin="../images/icons/favicon.png" data-scrollwhell="0" data-draggable="1"></div>
+			<!-- Delicious -->
+			<div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-delicious t-center">
+						<span class="tit2 t-center">
+							De Délicieuses
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							Recettes
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							Nos plats sont préparés par des chefs spécialisés.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-delicious size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="../images/our-story-01.jpg" alt="IMG-OUR">
+					</div>
+				</div>
 			</div>
-		</div>
 
-		<div class="container">
-			<h3 class="tit7 t-center p-b-62 p-t-105">
-				Envoyez nous un message
-			</h3>
 
-			<form class="wrap-form-reservation size22 m-l-r-auto">
-				<div class="row">
-					<div class="col-md-4">
-						<!-- Name -->
-						<span class="txt9">
-							Nom
-						</span>
-
-						<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name">
-						</div>
-					</div>
-
-					<div class="col-md-4">
-						<!-- Email -->
-						<span class="txt9">
-							Email
-						</span>
-
-						<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Email">
-						</div>
-					</div>
-
-					<div class="col-md-4">
-						<!-- Phone -->
-						<span class="txt9">
-							Téléphone
-						</span>
-
-						<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="phone" placeholder="Phone">
-						</div>
-					</div>
-
-					<div class="col-12">
-						<!-- Message -->
-						<span class="txt9">
-							Message
-						</span>
-						<textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="message" placeholder="Message"></textarea>
+			<!-- Romantic -->
+			<div class="row p-t-170">
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-romantic size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="../images/our-story-02.jpg" alt="IMG-OUR">
 					</div>
 				</div>
 
-				<div class="wrap-btn-booking flex-c-m m-t-13">
-					<!-- Button3 -->
-					<button type="submit" class="btn3 flex-c-m size36 txt11 trans-0-4">
-						Envoyer
-					</button>
-				</div>
-			</form>
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-romantic t-center">
+						<span class="tit2 t-center">
+							Un restaurant
+						</span>
 
-			<div class="row p-t-135">
-				<div class="col-sm-8 col-md-4 col-lg-4 m-l-r-auto p-t-30">
-					<div class="dis-flex m-l-23">
-						<div class="p-r-40 p-t-6">
-							<img src="../images/icons/map-icon.png" alt="IMG-ICON">
-						</div>
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							Romantique
+						</h3>
 
-						<div class="flex-col-l">
-							<span class="txt5 p-b-10">
-								Lieu
-							</span>
-
-							<span class="txt23 size38">
-								20 rue du bosquet, 95560, Baillet-en-France
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-8 col-md-3 col-lg-4 m-l-r-auto p-t-30">
-					<div class="dis-flex m-l-23">
-						<div class="p-r-40 p-t-6">
-							<img src="../images/icons/phone-icon.png" alt="IMG-ICON">
-						</div>
-
-
-						<div class="flex-col-l">
-							<span class="txt5 p-b-10">
-								Appelez nous
-							</span>
-
-							<span class="txt23 size38">
-								09 87 65 43 21
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-8 col-md-5 col-lg-4 m-l-r-auto p-t-30">
-					<div class="dis-flex m-l-23">
-						<div class="p-r-40 p-t-6">
-							<img src="../images/icons/clock-icon.png" alt="IMG-ICON">
-						</div>
-
-
-						<div class="flex-col-l">
-							<span class="txt5 p-b-10">
-								Heures d'ouverture
-							</span>
-
-							<span class="txt23 size38">
-								Du lundi au samedi <br/> 10:00 - 23:00 <br> Dimanche <br> 10:00 - 21:00
-							</span>
-						</div>
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+						Notre restaurant est choisi pour son charme et son ambiance. Parfait pour un dîner en amoureux.
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
+	<!-- Chef -->
+	<section class="section-chef bgwhite p-t-115 p-b-95">
+		<div class="container t-center">
+			<span class="tit2 t-center">
+				Rencontrez nos
+			</span>
+
+			<h3 class="tit5 t-center m-b-50 m-t-5">
+				Chefs
+			</h3>
+
+			<div class="row">
+				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
+					<!-- -Block5 -->
+					<div class="blo5 pos-relative p-t-60">
+						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
+							<a href="#"><img src="../images/avatar-02.jpg" alt="IGM-AVATAR"></a>
+						</div>
+
+						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
+							<a href="#" class="txt34 dis-block p-b-6">
+								Peter Hart
+							</a>
+
+							<span class="dis-block t-center txt35 p-b-25">
+								Chef
+							</span>
+
+							<p class="t-center">
+								Specialisé dans les plats Français et Italiens.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
+					<!-- -Block5 -->
+					<div class="blo5 pos-relative p-t-60">
+						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
+							<a href="#"><img src="../images/avatar-03.jpg" alt="IGM-AVATAR"></a>
+						</div>
+
+						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
+							<a href="#" class="txt34 dis-block p-b-6">
+								Hiro Tanaka
+							</a>
+
+							<span class="dis-block t-center txt35 p-b-25">
+								Chef
+							</span>
+
+							<p class="t-center">
+								Spécialisée dans les plats asiatiques.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
+					<!-- -Block5 -->
+					<div class="blo5 pos-relative p-t-60">
+						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
+							<a href="#"><img src="../images/avatar-05.jpg" alt="IGM-AVATAR"></a>
+						</div>
+
+						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
+							<a href="#" class="txt34 dis-block p-b-6">
+								Harry Harford
+							</a>
+
+							<span class="dis-block t-center txt35 p-b-25">
+								Chef
+							</span>
+
+							<p class="t-center">
+								Spécialisé dans la cuisine Américaine.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- Footer -->
 	<footer class="bg1">
@@ -447,11 +505,6 @@
 		</span>
 	</div>
 
-	<!-- Container Selection1 -->
-	<div id="dropDownSelect1"></div>
-
-
-
 <!--===============================================================================================-->
 	<script type="text/javascript" src="../vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -477,8 +530,7 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="../vendor/lightbox2/js/lightbox.min.js"></script>
 <!--===============================================================================================-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-	<script src="../js/map-custom.js"></script>
+	<script type="text/javascript" src="../vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
 	<script src="../js/main.js"></script>
 

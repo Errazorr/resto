@@ -1,34 +1,35 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Bienvenue</title>
+	<title>Home</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../fonts/themify/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/lightbox2/css/lightbox.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../css/util.css">
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -42,7 +43,7 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="#">
-							<img src="../images/icons/logo.png" alt="IMG-LOGO" data-logofixed="../images/icons/logo2.png">
+							<img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
 						</a>
 					</div>
 
@@ -51,37 +52,46 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="#">Home</a>
+									<a href="index.html">Home</a>
 								</li>
 
 								<li>
-									<a href="menuco.html">Menu</a>
+									<a href="View/menu.html">Menu</a>
 								</li>
 
 								<li>
-									<a href="reservation.php">Réservation</a>
+									<a href="View/gallery.html">Gallerie</a>
 								</li>
 
 								<li>
-									<a href="galleryco.html">Gallerie</a>
+									<a href="View/about.html">A propos</a>
 								</li>
 
 								<li>
-									<a href="aboutco.html">A propos</a>
+									<a href="View/contact.html">Contact</a>
 								</li>
+<?php
+						if (isset($_SESSION['identifiant'])) {
+							echo '<li>
+								<a href="../index.html">Déconnexion</a>
+							</li>
 
-								<li>
-									<a href="contactco.html">Contact</a>
-								</li>
+							<li>
+								<a href="inscription.html">Données</a>
+							</li>';
+						}
 
-								<li>
-									<a href="../index.html">Déconnexion</a>
-								</li>
+						else {
+							echo '<li>
+								<a href="View/connexion.html">Connexion</a>
+							</li>
 
-								<li>
-									<a href="inscription.html">Données</a>
-								</li>
+							<li>
+								<a href="View/inscription.html">S\'inscrire</a>
+							</li>';
+						}
 
+?>
 							</ul>
 						</nav>
 					</div>
@@ -103,39 +113,48 @@
 		<!-- - -->
 		<ul class="menu-sidebar p-t-95 p-b-70">
 			<li class="t-center m-b-13">
-				<a href="#" class="txt19">Home</a>
+				<a href="index.html" class="txt19">Home</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="menuco.html" class="txt19">Menu</a>
+				<a href="View/menu.html" class="txt19">Menu</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="galleryco.html" class="txt19">Gallerie</a>
+				<a href="View/gallery.html" class="txt19">Gallerie</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="aboutco.html" class="txt19">A propos</a>
+				<a href="View/about.html" class="txt19">A propos</a>
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="contactco.html" class="txt19">Contact</a>
+				<a href="View/contact.html" class="txt19">Contact</a>
 			</li>
 
-			<li class="t-center m-b-13">
-				<a href="../index.html" class="txt19">Déconnexion</a>
-			</li>
 
-			<li class="t-center m-b-13">
-				<a href="inscription.html" class="txt19">Données</a>
-			</li>
+			<?php
+									if (isset($_SESSION['identifiant'])) {
+										echo '<li>
+											<a href="../index.html">Déconnexion</a>
+										</li>
 
-			<li class="t-center">
-				<!-- Button3 -->
-				<a href="reservation.php" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
-					Reservation
-				</a>
-			</li>
+										<li>
+											<a href="inscription.html">Données</a>
+										</li>';
+									}
+
+									else {
+										echo '<li class="t-center m-b-13">
+											<a href="View/connexion.html" class="txt19">Connexion</a>
+										</li>
+
+										<li class="t-center m-b-13">
+											<a href="View/inscription.html" class="txt19">S\'inscrire</a>
+										</li>';
+									}
+
+			?>
 		</ul>
 
 		<!-- - -->
@@ -147,40 +166,40 @@
 
 			<!-- Gallery -->
 			<div class="wrap-gallery-sidebar flex-w">
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-01.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-01.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-02.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-02.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-03.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-03.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-05.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-05.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-06.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-06.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-07.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-07.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-09.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-09.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-10.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-10.jpg" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="../images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
-					<img src="../images/photo-gallery-11.jpg" alt="GALLERY">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-11.jpg" alt="GALLERY">
 				</a>
 			</div>
 		</div>
@@ -190,7 +209,7 @@
 	<section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">
-				<div class="item-slick1 item1-slick1" style="background-image: url(../images/slide1-01.jpg);">
+				<div class="item-slick1 item1-slick1" style="background-image: url(images/slide1-01.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
 						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
 							Bienvenue chez
@@ -202,14 +221,14 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
 							<!-- Button1 -->
-							<a href="menuco.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+							<a href="View/menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
 								Menu
 							</a>
 						</div>
 					</div>
 				</div>
 
-				<div class="item-slick1 item2-slick1" style="background-image: url(../images/master-slides-02.jpg);">
+				<div class="item-slick1 item2-slick1" style="background-image: url(images/master-slides-02.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
 						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
 							Bienvenue chez
@@ -221,14 +240,14 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
 							<!-- Button1 -->
-							<a href="menuco.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+							<a href="View/menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
 								Menu
 							</a>
 						</div>
 					</div>
 				</div>
 
-				<div class="item-slick1 item3-slick1" style="background-image: url(../images/master-slides-01.jpg);">
+				<div class="item-slick1 item3-slick1" style="background-image: url(images/master-slides-01.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
 						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
 							Bienvenue chez
@@ -240,7 +259,7 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
 							<!-- Button1 -->
-							<a href="menuco.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+							<a href="View/menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
 								Menu
 							</a>
 						</div>
@@ -271,7 +290,7 @@
 							Notre restaurant peut vous offrir des plats du monde entier de la meilleure qualité possible grâce à nos chefs experimentés.
 						</p>
 
-						<a href="aboutco.html" class="txt4">
+						<a href="View/about.html" class="txt4">
 							Notre histoire
 							<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
 						</a>
@@ -280,7 +299,7 @@
 
 				<div class="col-md-6 p-b-30">
 					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-						<img src="../images/our-story-01.jpg" alt="IMG-OUR">
+						<img src="images/our-story-01.jpg" alt="IMG-OUR">
 					</div>
 				</div>
 			</div>
@@ -289,7 +308,7 @@
 
 	<!-- Intro -->
 	<section class="section-intro">
-		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url(../images/bg-intro-01.jpg);">
+		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url(images/bg-intro-01.jpg);">
 			<span class="tit2 p-l-15 p-r-15">
 				Découvrez
 			</span>
@@ -306,7 +325,7 @@
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src="../images/intro-01.jpg" alt="IMG-INTRO"></a>
+								<a href="#"><img src="images/intro-01.jpg" alt="IMG-INTRO"></a>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
@@ -325,7 +344,7 @@
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src="../images/intro-02.jpg" alt="IMG-INTRO"></a>
+								<a href="#"><img src="images/intro-02.jpg" alt="IMG-INTRO"></a>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
@@ -344,7 +363,7 @@
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src="../images/intro-04.jpg" alt="IMG-INTRO"></a>
+								<a href="#"><img src="images/intro-04.jpg" alt="IMG-INTRO"></a>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
@@ -383,11 +402,11 @@
 						<div class="col-sm-6">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="../images/our-menu-01.jpg" alt="IMG-MENU">
+								<img src="images/our-menu-01.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
-								<a href="menuco.html" class="btn2 flex-c-m txt5 ab-c-m size4">
-									Entrées
+								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size4">
+									Plats
 								</a>
 							</div>
 						</div>
@@ -395,11 +414,11 @@
 						<div class="col-sm-6">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="../images/our-menu-05.jpg" alt="IMG-MENU">
+								<img src="images/our-menu-05.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
-								<a href="menuco.html" class="btn2 flex-c-m txt5 ab-c-m size5">
-									Repas
+								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size5">
+									Diner
 								</a>
 							</div>
 						</div>
@@ -407,11 +426,11 @@
 						<div class="col-12">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="../images/our-menu-13.jpg" alt="IMG-MENU">
+								<img src="images/our-menu-13.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
-								<a href="menuco.html" class="btn2 flex-c-m txt5 ab-c-m size6">
-									Diner
+								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size6">
+									Alcools
 								</a>
 							</div>
 						</div>
@@ -423,22 +442,10 @@
 						<div class="col-12">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="../images/our-menu-08.jpg" alt="IMG-MENU">
+								<img src="images/our-menu-08.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
-								<a href="menuco.html" class="btn2 flex-c-m txt5 ab-c-m size7">
-									Desserts
-								</a>
-							</div>
-						</div>
-
-						<div class="col-12">
-							<!-- Item our menu -->
-							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="../images/our-menu-10.jpg" alt="IMG-MENU">
-
-								<!-- Button2 -->
-								<a href="menuco.html" class="btn2 flex-c-m txt5 ab-c-m size8">
+								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size7">
 									Boissons
 								</a>
 							</div>
@@ -447,11 +454,23 @@
 						<div class="col-12">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="../images/our-menu-16.jpg" alt="IMG-MENU">
+								<img src="images/our-menu-10.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
-								<a href="menuco.html" class="btn2 flex-c-m txt5 ab-c-m size9">
-									Alcools
+								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size8">
+									Entrées
+								</a>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/our-menu-16.jpg" alt="IMG-MENU">
+
+								<!-- Button2 -->
+								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size9">
+									Desserts
 								</a>
 							</div>
 						</div>
@@ -482,7 +501,7 @@
 					<div class="wrap-content-slide3 p-b-50 p-t-50">
 						<div class="container">
 							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-								<img src="../images/avatar-01.jpg" alt="IGM-AVATAR">
+								<img src="images/avatar-01.jpg" alt="IGM-AVATAR">
 							</div>
 
 							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -510,7 +529,7 @@
 					<div class="wrap-content-slide3 p-b-50 p-t-50">
 						<div class="container">
 							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-								<img src="../images/avatar-04.jpg" alt="IGM-AVATAR">
+								<img src="images/avatar-04.jpg" alt="IGM-AVATAR">
 							</div>
 
 							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -538,7 +557,7 @@
 					<div class="wrap-content-slide3 p-b-50 p-t-50">
 						<div class="container">
 							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-								<img src="../images/avatar-05.jpg" alt="IGM-AVATAR">
+								<img src="images/avatar-05.jpg" alt="IGM-AVATAR">
 							</div>
 
 							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -567,7 +586,6 @@
 			<div class="wrap-slick3-dots m-t-30"></div>
 		</div>
 	</section>
-
 
 	<!-- Footer -->
 	<footer class="bg1">
@@ -631,52 +649,52 @@
 
 					<!-- Gallery footer -->
 					<div class="wrap-gallery-footer flex-w">
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-01.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-01.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-02.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-02.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-03.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-03.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-04.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-04.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-04.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-05.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-05.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-06.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-06.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-07.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-07.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-08.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-08.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-08.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-09.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-09.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-10.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-10.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-11.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-11.jpg" alt="GALLERY">
 						</a>
 
-						<a class="item-gallery-footer wrap-pic-w" href="../images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
-							<img src="../images/photo-gallery-12.jpg" alt="GALLERY">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-12.jpg" alt="GALLERY">
 						</a>
 					</div>
 				</div>
@@ -706,49 +724,33 @@
 	<!-- Container Selection1 -->
 	<div id="dropDownSelect1"></div>
 
-	<!-- Modal Video 01-->
-	<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
-
-		<div class="modal-dialog" role="document" data-dismiss="modal">
-			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
-
-			<div class="wrap-video-mo-01">
-				<div class="w-full wrap-pic-w op-0-0"><img src="../images/icons/video-16-9.jpg" alt="IMG"></div>
-				<div class="video-mo-01">
-					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/animsition/js/animsition.min.js"></script>
+	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/bootstrap/js/popper.js"></script>
-	<script type="text/javascript" src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/select2/select2.min.js"></script>
+	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/daterangepicker/moment.min.js"></script>
-	<script type="text/javascript" src="../vendor/daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/slick/slick.min.js"></script>
-	<script type="text/javascript" src="../js/slick-custom.js"></script>
+	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/slick-custom.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/parallax100/parallax100.js"></script>
+	<script type="text/javascript" src="vendor/parallax100/parallax100.js"></script>
 	<script type="text/javascript">
         $('.parallax100').parallax100();
 	</script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/countdowntime/countdowntime.js"></script>
+	<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="../vendor/lightbox2/js/lightbox.min.js"></script>
+	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../js/main.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
 </html>

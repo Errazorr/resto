@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,13 +71,28 @@
 									<a href="contact.html">Contact</a>
 								</li>
 
-								<li>
-									<a href="connexion.html">Connexion</a>
-								</li>
+								<?php
+														if (isset($_SESSION['identifiant'])) {
+															echo '<li>
+																<a href="../index.html">Déconnexion</a>
+															</li>
 
-								<li>
-									<a href="inscription.html">S'inscrire</a>
-								</li>
+															<li>
+																<a href="inscription.html">Données</a>
+															</li>';
+														}
+
+														else {
+															echo '<li>
+																<a href="View/connexion.html">Connexion</a>
+															</li>
+
+															<li>
+																<a href="View/inscription.html">S\'inscrire</a>
+															</li>';
+														}
+
+								?>
 
 							</ul>
 						</nav>
@@ -118,13 +134,28 @@
 				<a href="contact.html" class="txt19">Contact</a>
 			</li>
 
-			<li class="t-center m-b-13">
-				<a href="connexion.html" class="txt19">Connexion</a>
-			</li>
+			<?php
+									if (isset($_SESSION['identifiant'])) {
+										echo '<li class="t-center m-b-13">
+											<a href="../index.html">Déconnexion</a>
+										</li>
 
-			<li class="t-center m-b-13">
-				<a href="inscription.html" class="txt19">S'inscrire</a>
-			</li>
+										<li class="t-center m-b-13">
+											<a href="inscription.html">Données</a>
+										</li>';
+									}
+
+									else {
+										echo '<li class="t-center m-b-13">
+											<a href="View/connexion.html" class="txt19">Connexion</a>
+										</li>
+
+										<li class="t-center m-b-13">
+											<a href="View/inscription.html" class="txt19">S\'inscrire</a>
+										</li>';
+									}
+
+			?>
 		</ul>
 
 		<!-- - -->
